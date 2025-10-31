@@ -28,8 +28,37 @@ def calcular_propina(importe: float, calidad: str) -> tuple[float, float]:
         - Si la calidad no es válida, devuelve (0.0, importe)
         - La calidad se compara en minúsculas
     """
+
     # TODO: Implementar la función
-    return (0.0, 0.0)
+   
+    #Valida que cuando el valor introducido es menor o igual a cero, te va a devolver siempre 0
+    if importe <= 0:
+        return (0.0, 0.0)
+
+    #El ".lower()" es completamente necesario para que pueda convertir las mayusculas, o mayusculas y minúsculas mezcladas a una nueva cadena con todos los caracteres en minúscula
+    calidad = calidad.lower()
+
+    #A cada nivel de calidad se le asigna el porcentaje a multiplicar
+    if calidad == "excelente":
+        porcentaje = 0.20
+    elif calidad == "bueno":
+        porcentaje = 0.15
+    elif calidad == "regular":
+        porcentaje = 0.10
+    #Si la calidad introducida no coincide con ninguna de las tres, te devolvera el importe pero la propina será 0 al no ser correcta.
+    else:
+        return (0.0 , importe)
+    
+    #Se calcula la propina multiplicando el importe por el porcentaje, y el total sumando el importe con la propina
+    propina = importe * porcentaje
+    total = importe + propina
+    
+    #Devuelve los valores propina y total en una cadena
+    return (propina, total)
+    
+
+
+
 
 
 def solicitar_importe() -> float:
