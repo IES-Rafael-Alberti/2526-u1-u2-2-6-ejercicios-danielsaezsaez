@@ -33,20 +33,26 @@ def clasificar_temperatura(temperatura: float) -> tuple[str, bool]:
     clasificacion = ""
 
     #Clasifica todos los rangos que se solicitan
-    if temperatura <= 0:
+    if temperatura < -50:
+        clasificacion = "Inválida"
+    elif temperatura < 0:
         clasificacion = "Helada"
 
-    elif temperatura <= 15:
+    elif temperatura <= 10:
         clasificacion = "Frío"
 
-    elif temperatura <= 25:
+    elif temperatura <= 20:
         clasificacion = "Templado"
 
-    elif temperatura <= 35:
+    elif temperatura <= 30:
         clasificacion = "Cálido"
     
     elif temperatura <= 40:
         clasificacion = "Caluroso"
+    
+    elif temperatura > 60:
+        clasificacion = "Inválida"
+        
     else:
         clasificacion = "Caluroso"
 
