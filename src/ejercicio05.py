@@ -30,9 +30,26 @@ def convertir_segundos(segundos_totales: int) -> tuple[int, int, int, int]:
     """
     # TODO: Implementar la función
     #Constantes para hacer las operaciones(las constantes siempre en mayus)
+    SEGUNOS_MINUTO = 60
+    SEGUNDOS_HORA = 3600
+    SEGUNDOS_DIA = 86400
+
+    #Calculo de los 4 int que hay que devolver, días, horas, minutos y segundos
+    dias = segundos_totales // SEGUNDOS_DIA
+    resto = segundos_totales % SEGUNDOS_DIA
+
+    horas = resto // SEGUNDOS_HORA
+    resto = resto % SEGUNDOS_HORA
+
+    minutos = resto // SEGUNOS_MINUTO
+    resto = resto % SEGUNOS_MINUTO
+
+    segundos = resto
+
+    return (dias, horas, minutos, segundos)
     
     #Verificar que no se puedan introducir valores menores que 0
-    if segundos_totales < 0:
+    if segundos_totales <= 0:
         return (0, 0, 0, 0)
 
 
