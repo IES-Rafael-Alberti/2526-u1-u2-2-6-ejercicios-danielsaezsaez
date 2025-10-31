@@ -38,19 +38,24 @@ def es_bisiesto(anio: int) -> tuple[bool, int]:
     if anio >3000 or anio <1582:
         return (False, 0)
 
-    #Año bisiesto NO secular
-    if anio % 4 == 0:
-        return (True, 3)
-    #Año secular y NO bisiesto
+    #Secular es un año que cierra un siglo y bisiesto es que cada 4 años tiene un día "extra"
+    
+    #El año es bisiesto (lo puedo dividir entre 400)
+    if anio % 400 == 0:
+        return(True, 1)
+    
+    #El año NO es bisiesto (NO se puede dividir entre 400 pero SI entre 100)
     elif anio % 100 == 0:
-        return (True, 2)
-    #Año secular y bisiesto
-    elif anio % 400 == 0:
-        return (True, 1)
-    #Para los que no cumplen ninguna condición
+        return (False, 2)
+    
+    #El año es bisiesto (SI se puede dividir entre 4 pero NO entre 100)
+    elif anio % 4 == 0:
+        return (True,3)
+    
+    #El año NO es bisiesto (NO se puede dividir entre 4)
     else:
-        return (True, 4)
-
+        return (False, 4)
+    
 
 
 def solicitar_anio() -> int:
