@@ -55,7 +55,6 @@ def es_bisiesto(anio: int) -> tuple[bool, int]:
     #El año NO es bisiesto (NO se puede dividir entre 4)
     else:
         return (False, 4)
-    
 
 
 def solicitar_anio() -> int:
